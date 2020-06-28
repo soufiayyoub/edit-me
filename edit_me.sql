@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2020 at 05:19 AM
+-- Generation Time: May 29, 2020 at 12:23 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.26
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `delivermethings`
+-- Database: `edit_me`
 --
 
 -- --------------------------------------------------------
@@ -84,7 +84,11 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (67, 9, 'slug', 'text', 'Slug', 1, 1, 1, 1, 1, 1, '{\"slugify\":{\"origin\":\"name\"}}', 5),
 (68, 9, 'created_at', 'timestamp', 'Created At', 0, 0, 1, 0, 0, 0, NULL, 6),
 (69, 9, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
-(70, 8, 'filename', 'text', 'Filename', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required\"}}', 6);
+(70, 8, 'filename', 'text', 'Filename', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required\"}}', 6),
+(71, 1, 'logo', 'text', 'Logo', 0, 1, 1, 1, 1, 1, '{}', 12),
+(72, 1, 'phone', 'text', 'Phone', 0, 1, 1, 1, 1, 1, '{}', 13),
+(73, 1, 'primary_color', 'color', 'Primary Color', 0, 1, 1, 1, 1, 1, '{}', 14),
+(74, 1, 'secondary_color', 'color', 'Secondary Color', 0, 1, 1, 1, 1, 1, '{}', 15);
 
 -- --------------------------------------------------------
 
@@ -115,7 +119,7 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-04-11 17:25:34', '2020-04-13 00:13:20'),
+(1, 'users', 'users', 'User', 'Users', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-04-11 17:25:34', '2020-05-23 02:40:22'),
 (2, 'menus', 'menus', 'Menu', 'Menus', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-04-11 17:25:34', '2020-04-11 17:25:34'),
 (3, 'roles', 'roles', 'Role', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-04-11 17:25:34', '2020-04-13 00:14:48'),
 (8, 'templates', 'templates', 'Template', 'Templates', 'voyager-documentation', 'App\\Template', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-04-11 17:32:39', '2020-04-19 22:52:18'),
@@ -134,19 +138,6 @@ CREATE TABLE `failed_jobs` (
   `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `image` mediumblob NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -283,15 +274,36 @@ CREATE TABLE `oauth_access_tokens` (
 
 INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes`, `revoked`, `created_at`, `updated_at`, `expires_at`) VALUES
 ('06c58f47a0af0932827f24494f5890809e5008fef3a199dc34561b0826985b89cd0a75eb1c2952bc', 1, 3, 'admin', '[]', 0, '2020-04-30 03:14:59', '2020-04-30 03:14:59', '2021-04-30 03:14:59'),
+('11a065aa07582e3a33efde7fb5e1c063f61dd1512f17eca6a9336084830c0dd80b186686174b8b23', 4, 11, 'user', '[]', 0, '2020-05-28 18:12:41', '2020-05-28 18:12:41', '2021-05-28 18:12:41'),
+('12e800887e140ac79707559b638bb7878fca67b4c5c066c23d3a401a53a16585784080da1032afe9', 1, 7, 'admin', '[]', 0, '2020-05-28 00:27:27', '2020-05-28 00:27:27', '2021-05-28 00:27:27'),
+('203956109c05e265ed62a0d097133480d63b545aaa22756a45b591dc6e1b2a6a2303132fae88fd5f', 4, 11, 'user', '[]', 0, '2020-05-28 21:49:19', '2020-05-28 21:49:19', '2021-05-28 21:49:19'),
 ('3fb6932686ad8db99046ca0eb2cc5d6c2db021b4148b8135e18f5ad4483e9b93bc54a92a4feeaabf', 2, 3, 'user', '[]', 0, '2020-04-21 18:40:57', '2020-04-21 18:40:57', '2021-04-21 18:40:57'),
+('41759d336ed509cbab2d1a946612367c21bf65a5206a3576aa06eca60a92dca991666c43c2794145', 4, 11, 'user', '[]', 0, '2020-05-28 18:10:16', '2020-05-28 18:10:16', '2021-05-28 18:10:16'),
 ('4b38f3d6513da97112757f4a470b7ce200a2fcd52b34daffdbb1006610048ca3d6f71d33436d9a07', 1, 3, 'admin', '[]', 0, '2020-04-21 17:12:23', '2020-04-21 17:12:23', '2021-04-21 17:12:23'),
 ('530992ac3b2e1a5065da7f26ead01eca9d5774767e68d32b758069d7a301575c2f24ce2bce114c50', 1, 3, 'admin', '[]', 0, '2020-04-21 17:20:00', '2020-04-21 17:20:00', '2021-04-21 17:20:00'),
 ('56940a46fb99bf70bab9f4c471576f2f21a3fdc2ec63b09d172b9a9975d5c10b0402732b210cc131', 1, 3, 'admin', '[]', 0, '2020-04-21 17:14:34', '2020-04-21 17:14:34', '2021-04-21 17:14:34'),
+('57bcb7d140d1d9b6f4179f4e0b721ad071c584871aaab9debd02f090c1ee0d5fbb95898df33e6a1e', 4, 11, 'user', '[]', 0, '2020-05-28 18:12:27', '2020-05-28 18:12:27', '2021-05-28 18:12:27'),
+('65644d8ab2d14a66ce1a2df517c2901d0d7b0c0df09e06c4bbb331ec3646352035d0cbe95e773ea2', 4, 11, 'user', '[]', 0, '2020-05-28 18:00:23', '2020-05-28 18:00:23', '2021-05-28 18:00:23'),
+('67cef6408bd6df1f5d6f53891a3f89962444b333d38fdf0d8d64b94fd154da31372720a5662fe6a5', 4, 11, 'user', '[]', 0, '2020-05-28 17:59:27', '2020-05-28 17:59:27', '2021-05-28 17:59:27'),
+('69624af335d715cd47feb9dca8bb3b64bdd7e3b55206fdbc2b6f19e99528e0196ad94448e1108b5f', 4, 11, 'user', '[]', 0, '2020-05-28 18:13:08', '2020-05-28 18:13:08', '2021-05-28 18:13:08'),
+('6ae90d7171fdde986bb1f890b8f89faffae7f0cb03b6faeb264f381a4de275c4bf7bbb81709a4edd', 1, 7, 'admin', '[]', 0, '2020-05-28 01:18:06', '2020-05-28 01:18:06', '2021-05-28 01:18:06'),
+('6d53c63f37f7c231c9c467f43996266390b3d8327995c8c397935d1ea090d192caa7800bd608d712', 4, 11, 'user', '[]', 0, '2020-05-28 18:04:59', '2020-05-28 18:04:59', '2021-05-28 18:04:59'),
 ('87bcf2a95bd8702e711e18b5cc2a55be71b48fad84202911a30f405d3fdb4a34094a5178df921eb8', 1, 3, 'admin', '[]', 0, '2020-04-30 03:14:26', '2020-04-30 03:14:26', '2021-04-30 03:14:26'),
 ('8895dd3e87c00591285dfa7c0c920aacc1eb5b00cb59a09b584d024bafd00a5ba8134b2d425a2061', 1, 3, 'admin', '[]', 0, '2020-04-21 18:36:48', '2020-04-21 18:36:48', '2021-04-21 18:36:48'),
+('8b094fa78c9b2eb9c1f7e719d0efdca8ff7daacd663a6dc0b0219e54e17c18f46b9b152d23209c7c', 1, 7, 'admin', '[]', 0, '2020-05-28 01:19:00', '2020-05-28 01:19:00', '2021-05-28 01:19:00'),
 ('8ef6c39905c6de0772069e318023f8c83369feee96442fe49af7507cb9246dd722f15ab1b1dbe6ff', 1, 3, 'admin', '[]', 0, '2020-05-05 01:35:52', '2020-05-05 01:35:52', '2021-05-05 01:35:52'),
+('b039449ed81d3db4c79e77a31c5ea03e46f99ec73cac79ee4e331d32eadc3c690ad0a2751e84b4b2', 1, 11, 'admin', '[]', 0, '2020-05-28 17:10:14', '2020-05-28 17:10:14', '2021-05-28 17:10:14'),
+('b705b436d2778d66e09ad8087c8bb6573362e1c1cd684bb664b9307469298cec5d698eab498c2a05', 1, 11, 'admin', '[]', 0, '2020-05-28 19:01:55', '2020-05-28 19:01:55', '2021-05-28 19:01:55'),
+('be2ac59de2e5c4453461a1339fd30a426832e1e3544ac956c7e56b3fdea45da1dc00e5a0d499c9fa', 1, 11, 'admin', '[]', 0, '2020-05-28 17:12:24', '2020-05-28 17:12:24', '2021-05-28 17:12:24'),
+('c00c1a32e9a1e72027538411f7c1dcf0628bacf50b8330a90d73a7512d35d82eaacf45c619ffaa5b', 1, 11, 'admin', '[]', 0, '2020-05-28 02:00:32', '2020-05-28 02:00:32', '2021-05-28 02:00:32'),
+('c2c8c7eda972e9dd005c8eb4dac79712e98f1a876779505f998de8c82a5e1414ec8033b993e2e36b', 1, 11, 'admin', '[]', 0, '2020-05-28 19:01:22', '2020-05-28 19:01:22', '2021-05-28 19:01:22'),
+('d0c57c304c34d3e0f9ee1750865336de66fa5ca09628415caecca491a262e1d0f349e4b9339101f3', 1, 11, 'admin', '[]', 0, '2020-05-28 02:00:35', '2020-05-28 02:00:35', '2021-05-28 02:00:35'),
 ('d6eca6fe3d9925dde9db6204dc06667606bf351517b243a4f108c093cff367a447b5fb7e8680b643', 1, 3, 'user', '[]', 0, '2020-04-21 17:13:20', '2020-04-21 17:13:20', '2021-04-21 17:13:20'),
-('e6f968398448389b226c2123750ccf915533f0aa42b7c2874d9f3d834bc4658adb390004b262b931', 1, 3, 'admin', '[]', 0, '2020-05-05 01:34:47', '2020-05-05 01:34:47', '2021-05-05 01:34:47');
+('d9268ad79573351c942d7aa249d1b120535630057e014790459f15610e0a5e8dc1fa956618bcb539', 4, 11, 'user', '[]', 0, '2020-05-28 18:19:20', '2020-05-28 18:19:20', '2021-05-28 18:19:20'),
+('daa23e6f8494516b20fc13ee7036aa9afc75ef61c7369d14a25acfd22ad50dbb8b158f98bd4ed40f', 4, 11, 'user', '[]', 0, '2020-05-28 18:01:08', '2020-05-28 18:01:08', '2021-05-28 18:01:08'),
+('e6f968398448389b226c2123750ccf915533f0aa42b7c2874d9f3d834bc4658adb390004b262b931', 1, 3, 'admin', '[]', 0, '2020-05-05 01:34:47', '2020-05-05 01:34:47', '2021-05-05 01:34:47'),
+('f9bf59533d1256bc8e5e5b05783972d241e36ea7d3c1ddd85819e9a4ff90c956b91cb3e0e8653d55', 4, 11, 'user', '[]', 0, '2020-05-28 18:19:28', '2020-05-28 18:19:28', '2021-05-28 18:19:28'),
+('fdef0818bb1ca551f9d93c6d656f6d84a26c619b50272e29ee99eb0cc0ba110fe33ab5cbe391fece', 4, 11, 'user', '[]', 0, '2020-05-28 19:02:07', '2020-05-28 19:02:07', '2021-05-28 19:02:07');
 
 -- --------------------------------------------------------
 
@@ -335,7 +347,15 @@ INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `redirect`, `per
 (1, NULL, 'Laravel Personal Access Client', 'vKJuicGf4KS0EYKejFQACntmEIizU9h9lQjiDT4P', 'http://localhost', 1, 0, 0, '2020-04-19 22:34:00', '2020-04-19 22:34:00'),
 (2, NULL, 'Laravel Password Grant Client', 'fvim8OA3pAmY4eSZWpy8OhMgWfaFr644yZSlJ3EN', 'http://localhost', 0, 1, 0, '2020-04-19 22:34:01', '2020-04-19 22:34:01'),
 (3, NULL, 'Laravel Personal Access Client', 'OcjfI9UzX1b01SQ1zI6iS7I6VtjfDDZKPMb4GDG0', 'http://localhost', 1, 0, 0, '2020-04-20 23:46:04', '2020-04-20 23:46:04'),
-(4, NULL, 'Laravel Password Grant Client', 'ku72KcL6SqiQLAA1TsKIDcbFJNis38il3q0MIs1z', 'http://localhost', 0, 1, 0, '2020-04-20 23:46:04', '2020-04-20 23:46:04');
+(4, NULL, 'Laravel Password Grant Client', 'ku72KcL6SqiQLAA1TsKIDcbFJNis38il3q0MIs1z', 'http://localhost', 0, 1, 0, '2020-04-20 23:46:04', '2020-04-20 23:46:04'),
+(5, NULL, 'Laravel Personal Access Client', 'mwtKGM7111eQt7gIPvJFSdBeL03kkX44qRLqbSpL', 'http://localhost', 1, 0, 0, '2020-05-23 02:06:43', '2020-05-23 02:06:43'),
+(6, NULL, 'Laravel Password Grant Client', 'ivVLaaaxHsLLqzHHFXe7bOUZs1SSskHFxWu1RPlb', 'http://localhost', 0, 1, 0, '2020-05-23 02:06:43', '2020-05-23 02:06:43'),
+(7, NULL, 'Laravel Personal Access Client', 'HVM3V9QwzKFindZYYtdHztLLOprFWmG9idrRdrAT', 'http://localhost', 1, 0, 0, '2020-05-23 02:13:56', '2020-05-23 02:13:56'),
+(8, NULL, 'Laravel Password Grant Client', 'AqJnVRxo4WadVLUNOU0Ozgk2pyj85eKPq7Th5sqn', 'http://localhost', 0, 1, 0, '2020-05-23 02:13:56', '2020-05-23 02:13:56'),
+(9, NULL, 'Laravel Personal Access Client', 'RfqTwudxdEpv9P6lF1sRGM6tp099i0hYN9C55ooV', 'http://localhost', 1, 0, 0, '2020-05-28 01:45:50', '2020-05-28 01:45:50'),
+(10, NULL, 'Laravel Password Grant Client', 'A3Bn0QgESNoCRqtE4cfNUljRee5mlHbFpUbm74wN', 'http://localhost', 0, 1, 0, '2020-05-28 01:45:51', '2020-05-28 01:45:51'),
+(11, NULL, 'Laravel Personal Access Client', 'N9gGDSbz5blpuGyLVYnQxEozUXGN1NqICfFXPwrS', 'http://localhost', 1, 0, 0, '2020-05-28 02:00:16', '2020-05-28 02:00:16'),
+(12, NULL, 'Laravel Password Grant Client', 'ANeWCg5jIJeYFndY9wgn8JCcqNfqAzkR0gXGzbT1', 'http://localhost', 0, 1, 0, '2020-05-28 02:00:16', '2020-05-28 02:00:16');
 
 -- --------------------------------------------------------
 
@@ -356,7 +376,11 @@ CREATE TABLE `oauth_personal_access_clients` (
 
 INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
 (1, 1, '2020-04-19 22:34:00', '2020-04-19 22:34:00'),
-(2, 3, '2020-04-20 23:46:04', '2020-04-20 23:46:04');
+(2, 3, '2020-04-20 23:46:04', '2020-04-20 23:46:04'),
+(3, 5, '2020-05-23 02:06:43', '2020-05-23 02:06:43'),
+(4, 7, '2020-05-23 02:13:56', '2020-05-23 02:13:56'),
+(5, 9, '2020-05-28 01:45:51', '2020-05-28 01:45:51'),
+(6, 11, '2020-05-28 02:00:16', '2020-05-28 02:00:16');
 
 -- --------------------------------------------------------
 
@@ -613,16 +637,21 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `settings` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `logo` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT 'users/logo.jpg',
+  `phone` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '0612345678',
+  `primaryColor` varchar(7) COLLATE utf8mb4_unicode_ci DEFAULT '#00295d',
+  `secondaryColor` varchar(7) COLLATE utf8mb4_unicode_ci DEFAULT '#00295d'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$vTxsCJRzUW1TINpOjTP.quHyWtNbzefBkFGg0UfGhZAOFrVAHkTJO', 'AhdjP41DcjFbRteGQpHEeTPyzlUrPQj3lxF0CscwrKjL0a5eNrOaUyrUE40O', NULL, '2020-04-11 17:25:44', '2020-04-11 17:25:44'),
-(4, 2, 'ayyoub', 'soufiayyoub@gmail.com', 'users/default.png', NULL, '$2y$10$UZGF.nF7BkYoDSfBkb0Ws.yXD743VoYyAwGVympang18gcMXirote', NULL, '{\"locale\":\"en\"}', '2020-04-22 19:05:53', '2020-04-22 19:05:53');
+INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`, `logo`, `phone`, `primaryColor`, `secondaryColor`) VALUES
+(1, 1, 'Admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$vTxsCJRzUW1TINpOjTP.quHyWtNbzefBkFGg0UfGhZAOFrVAHkTJO', 'AhdjP41DcjFbRteGQpHEeTPyzlUrPQj3lxF0CscwrKjL0a5eNrOaUyrUE40O', NULL, '2020-04-11 17:25:44', '2020-04-11 17:25:44', 'users/logo.jpg', '0612345678', '#00295d', '#00295d'),
+(4, 2, 'ayyoub', 'soufiayyoub@gmail.com', 'users/default.png', NULL, '$2y$10$UZGF.nF7BkYoDSfBkb0Ws.yXD743VoYyAwGVympang18gcMXirote', NULL, '{\"locale\":\"en\"}', '2020-04-22 19:05:53', '2020-05-28 21:51:09', 'users/1590702669.jpg', '0612345678', '#00295d', '#00295d'),
+(5, 2, 'abdelali', 'abdelali@gmail.com', 'users/default.png', NULL, '$2y$10$kvHOdUur4.sidgD0xaBFauzTwrwiSqjJoUjQ5pxb0bvFHNKqQT3ei', NULL, '{\"locale\":\"en\"}', '2020-05-23 02:46:24', '2020-05-23 02:46:24', 'users/logo.jpg', '0612345678', '#00295d', '#00295d');
 
 -- --------------------------------------------------------
 
@@ -658,12 +687,6 @@ ALTER TABLE `data_types`
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `images`
---
-ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -785,7 +808,7 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `data_types`
@@ -798,12 +821,6 @@ ALTER TABLE `data_types`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -827,13 +844,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -869,7 +886,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
